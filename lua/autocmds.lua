@@ -13,6 +13,7 @@ autocmd("BufEnter", {
   end,
 })
 
+-- open nvchad dashboard when no buffers are open
 autocmd("BufDelete", {
   callback = function()
     local bufs = vim.t.bufs
@@ -22,6 +23,7 @@ autocmd("BufDelete", {
   end,
 })
 
+-- save cursor position when leaving a buffer
 autocmd("BufReadPost", {
   pattern = "*",
   callback = function()
@@ -37,6 +39,7 @@ autocmd("BufReadPost", {
   end,
 })
 
+-- wezterm padding configuration
 -- set wezterm padding to 0 when enter Neovim
 -- autocmd("VimEnter", {
 --   callback = function()
@@ -51,6 +54,7 @@ autocmd("BufReadPost", {
 --   end,
 -- })
 
+-- check for file changes
 autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
   command = "checktime",
 })

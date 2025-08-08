@@ -19,11 +19,13 @@ unmap("n", "<leader>cm") --find commit
 unmap("n", "<leader>ch") --old Nvcheatsheet map
 unmap("n", "<leader>th") --old Nvchad theme map
 
+-- general mappings
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>") --exit with jk instead of ESC
 map("n", "<C-q>", "<cmd>q<CR>", { desc = "general quit vim" })
 map({ "n", "i" }, "<C-s>", "<cmd>wa<CR>", { desc = "general save" })
 
+-- which-key grouping
 wk.add {
   {
     "<leader>e",
@@ -52,6 +54,8 @@ wk.add {
 -- copilot chat
 -- toggle copilot chat
 map("n", "<leader>aa", "<cmd>CopilotChatToggle<CR>", { desc = "Open/close Copilot Chat" })
+-- open copilot action on highlighted
+map("v", "<leader>aa", "<cmd>CopilotChatPrompts<CR>", { desc = "Copilot action for highlighted" })
 -- open last copilot session
 map("n", "<leader>ar", function()
   table.sort(files, function(a, b)
@@ -65,8 +69,6 @@ map("n", "<leader>ar", function()
     vim.notify("No CopilotChat sessions found.", vim.log.levels.WARN)
   end
 end, { desc = "Open last copilot session" })
--- open copilot action on highlighted
-map("v", "<leader>aa", "<cmd>CopilotChatPrompts<CR>", { desc = "Copilot action for highlighted" })
 
 -- Toggle
 -- Transparency
@@ -107,10 +109,12 @@ map("n", "<leader>ft", function()
   require("nvchad.themes").open()
 end, { desc = "telescope nvchad themes" })
 
+-- lsp related
 map("n", "K", function()
   vim.lsp.buf.hover { border = "rounded" }
 end, { desc = "hover info" })
 
+-- close all buffers
 map("n", "<leader>X", function()
   require("nvchad.tabufline").closeAllBufs(true)
 end, { desc = "buffer close all" })

@@ -1,20 +1,23 @@
+-- options 
 require "nvchad.options"
-
--- add yours here!
 
 local opt = vim.opt
 local o = vim.o
 local g = vim.g
 local border = "rounded"
 
+-- general options
 opt.wrap = false
 opt.relativenumber = true
 opt.autoread = true
 
+-- global options for transparency
 _G.transparency_enabled = require("chadrc").base46.transparency
 
+-- default shell
 o.shell = "pwsh"
 
+-- wsl related options
 -- g.clipboard = {
 --   name = "WslClipboard",
 --   copy = {
@@ -28,6 +31,7 @@ o.shell = "pwsh"
 --   cache_enabled = 0,
 -- }
 
+-- etc
 -- apply rounded borders to other floating UI elements
 vim.diagnostic.config {
   float = { border = border },

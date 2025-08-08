@@ -1,11 +1,11 @@
 -- This file needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
 -- Please read that file to know all available options :(
-local g = vim.g
 
 ---@type ChadrcConfig
 local M = {}
 
+-- base46 configuration
 M.base46 = {
   theme = "horizon",
   transparency = true,
@@ -20,6 +20,7 @@ M.base46 = {
   },
 }
 
+-- nvdash configuration
 M.nvdash = {
   load_on_startup = true,
   buttons = {
@@ -48,14 +49,18 @@ M.nvdash = {
   },
 }
 
+-- ui configuration
 M.ui = {
+  -- telescope
   telescope = {
     style = "bordered",
   },
+  -- cmp
   cmp = {
     style = "atom",
     icons_left = true,
   },
+  -- statusline
   statusline = {
     theme = "minimal",
     order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
@@ -65,6 +70,7 @@ M.ui = {
       -- end,
     },
   },
+  -- tabufline
   tabufline = {
     lazyload = false,
     order = { "buffers", "tabs", "arrowsPrev", "arrowsNext", "transparencyToggle", "btns" },
@@ -94,10 +100,12 @@ M.ui = {
   },
 }
 
+-- lsp configuration
 M.lsp = {
   -- signature = false,
 }
 
+-- terminal configuration
 M.term = {
   sizes = {
     vsp = 0.3,
