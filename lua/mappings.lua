@@ -80,7 +80,7 @@ end, { desc = "toggle switch theme" })
 
 -- file format
 map({ "n", "x" }, "<leader>cf", function()
-  require("conform").format { lsp_fallback = true }
+  require("conform").format { lsp_fallback = true, async = true }
 end, { desc = "format file" })
 
 -- Open Utils buffer
