@@ -58,3 +58,12 @@ autocmd("BufReadPost", {
 autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
   command = "checktime",
 })
+
+vim.api.nvim_create_autocmd("TermClose", {
+  -- group = augroup,
+  callback = function()
+    if vim.v.event.status == 0 then
+      vim.api.nvim_buf_delete(0, {})
+    end
+  end,
+})
