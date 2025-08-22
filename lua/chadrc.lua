@@ -24,7 +24,7 @@ M.base46 = {
 M.nvdash = {
   load_on_startup = true,
   buttons = {
-    { txt = "󰒓  config", keys = "c", cmd = "lua require('telescope.builtin').find_files({cwd = vim.fn.stdpath('config')})" },
+    { txt = "󰒓  config", keys = "c", cmd = "lua require('nvim-tree.api').tree.toggle({path = vim.fn.stdpath('config')})" },
     { txt = "󰈙  find files", keys = "f", cmd = "lua require('telescope.builtin').find_files()" },
     { txt = "󰈹  recent project", keys = "r", cmd = "lua require'telescope'.extensions.projects.projects{}" },
     { txt = "󰓃  help docs", keys = "h", cmd = "lua require('telescope.builtin').help_tags()" },

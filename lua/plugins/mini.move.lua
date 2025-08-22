@@ -1,7 +1,11 @@
 return {
   "echasnovski/mini.move",
   version = false,
-  event = "BufReadPost",
+  -- event = "BufReadPost",
+  keys = {
+    { "<A-j>" },
+    { "<A-k>" },
+  },
   config = function()
     require("mini.move").setup {
       mappings = {
