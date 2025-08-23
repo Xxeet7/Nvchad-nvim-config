@@ -1,8 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
 local servers = {
-  html = {},
-  phpstan = {},
   intelephense = {
     filetypes = { "php" },
   },

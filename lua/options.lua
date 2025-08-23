@@ -15,7 +15,7 @@ opt.autoread = true
 _G.transparency_enabled = require("chadrc").base46.transparency
 
 -- default shell
-o.shell = "pwsh"
+-- o.shell = "pwsh"
 
 -- wsl related options
 -- g.clipboard = {

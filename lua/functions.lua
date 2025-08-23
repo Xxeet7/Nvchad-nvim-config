@@ -38,21 +38,21 @@ function _G.TabuflinePrev()
 end
 
 -- modify wezterm user variables
--- function _G.SetWeztermUserVar(name, value)
---   local ty = type(value)
---
---   if ty == "table" then
---     value = vim.json.encode(value)
---   elseif ty == "function" or ty == "thread" then
---     error("cannot serialize " .. ty)
---   elseif ty == "boolean" then
---     value = value and "true" or "false"
---   elseif ty == "nil" then
---     value = ""
---   end
---
---   local template = "\x1b]1337;SetUserVar=%s=%s\a"
---   local command = template:format(name, vim.base64.encode(tostring(value)))
---   vim.api.nvim_chan_send(vim.v.stderr, command)
--- end
+function _G.SetWeztermUserVar(name, value)
+  local ty = type(value)
+
+  if ty == "table" then
+    value = vim.json.encode(value)
+  elseif ty == "function" or ty == "thread" then
+    error("cannot serialize " .. ty)
+  elseif ty == "boolean" then
+    value = value and "true" or "false"
+  elseif ty == "nil" then
+    value = ""
+  end
+
+  local template = "\x1b]1337;SetUserVar=%s=%s\a"
+  local command = template:format(name, vim.base64.encode(tostring(value)))
+  vim.api.nvim_chan_send(vim.v.stderr, command)
+end
 

@@ -8,10 +8,10 @@ local M = {}
 -- base46 configuration
 M.base46 = {
   theme = "horizon",
-  transparency = true,
+  transparency = false,
   theme_toggle = { "horizon", "github_light" },
   hl_override = {
-    -- NvDashAscii = { fg = "red" }
+    NvDashButtons = { fg = "blue" }
   },
   hl_add = {
     transparencyToggle = { bg = "blue", fg = "NONE", reverse = false },
@@ -28,11 +28,11 @@ M.nvdash = {
     { txt = "󰈙  find files", keys = "f", cmd = "lua require('telescope.builtin').find_files()" },
     { txt = "󰈹  recent project", keys = "r", cmd = "lua require'telescope'.extensions.projects.projects{}" },
     { txt = "󰓃  help docs", keys = "h", cmd = "lua require('telescope.builtin').help_tags()" },
-    {
-      txt = "󰉋  file manager",
-      keys = "y",
-      cmd = "lua require('lazy.util').float_term({ 'yazi' }, { border = 'rounded', cwd = vim.env.HOME })",
-    },
+    -- {
+    --   txt = "󰉋  file manager",
+    --   keys = "y",
+    --   cmd = "lua require('lazy.util').float_term({ 'yazi' }, { border = 'rounded', cwd = vim.env.HOME })",
+    -- },
     { txt = "󰓷  Lazy", keys = "l", cmd = "Lazy" },
     { txt = "  quit", keys = "q", cmd = "q" },
     { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },

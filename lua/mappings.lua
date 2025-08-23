@@ -94,9 +94,9 @@ map("n", "<leader>ol", "<cmd>Lazy<CR>", { desc = "Open Lazy" })
 map("n", "<leader>og", function()
   require("lazy.util").float_term({ "lazygit" }, { border = "rounded" })
 end, { desc = "Open Lazy git" })
-map("n", "<leader>oy", function()
-  require("lazy.util").float_term({ "yazi" }, { border = "rounded", cwd = vim.fn.getcwd() })
-end, { desc = "Open Yazi file manager" })
+-- map("n", "<leader>oy", function()
+--   require("lazy.util").float_term({ "yazi" }, { border = "rounded", cwd = vim.fn.getcwd() })
+-- end, { desc = "Open Yazi file manager" })
 
 -- Telescope
 map("n", "<leader>fm", "<cmd>Telescope marks<CR>", { desc = "telescope find marks" })
@@ -119,3 +119,11 @@ map("n", "<leader>X", function()
   require("nvchad.tabufline").closeAllBufs(true)
 end, { desc = "buffer close all" })
 
+-- delete without yanking
+vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yanking" })
+
+-- center screen when jumping
+vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down (centered)" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })

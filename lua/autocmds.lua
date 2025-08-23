@@ -41,18 +41,18 @@ autocmd("BufReadPost", {
 
 -- wezterm padding configuration
 -- set wezterm padding to 0 when enter Neovim
--- autocmd("VimEnter", {
---   callback = function()
---     _G.SetWeztermUserVar("nvim_padding", "0")
---   end,
--- })
---
--- -- Restore padding when Neovim exits
--- autocmd("VimLeavePre", {
---   callback = function()
---     _G.SetWeztermUserVar("nvim_padding", "default")
---   end,
--- })
+autocmd("VimEnter", {
+  callback = function()
+    _G.SetWeztermUserVar("nvim_padding", "0")
+  end,
+})
+
+-- Restore padding when Neovim exits
+autocmd("VimLeavePre", {
+  callback = function()
+    _G.SetWeztermUserVar("nvim_padding", "default")
+  end,
+})
 
 -- check for file changes
 autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
