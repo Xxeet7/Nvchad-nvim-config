@@ -6,13 +6,15 @@ local o = vim.o
 local g = vim.g
 local border = "rounded"
 
+-- global options
+_G.transparency_enabled = require("chadrc").base46.transparency
+_G.wrap_line = false
+
 -- general options
-opt.wrap = false
+opt.wrap = _G.wrap_line
+opt.linebreak = true
 opt.relativenumber = true
 opt.autoread = true
-
--- global options for transparency
-_G.transparency_enabled = require("chadrc").base46.transparency
 
 -- default shell
 -- o.shell = "pwsh"
