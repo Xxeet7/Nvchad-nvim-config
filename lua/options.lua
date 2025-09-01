@@ -45,3 +45,11 @@ opt.iskeyword:append("-") -- Treat dash as part of a word
 vim.diagnostic.config {
   float = { border = border },
 }
+
+-- set undo dir
+local undodir = "~/.local/share/nvim/undodir" -- Undo directory path
+vim.opt.undodir = vim.fn.expand(undodir) -- Expand to full path
+local undodir_path = vim.fn.expand(undodir)
+if vim.fn.isdirectory(undodir_path) == 0 then
+	vim.fn.mkdir(undodir_path, "p") -- Create if not exists
+end
