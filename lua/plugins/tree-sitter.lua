@@ -22,6 +22,7 @@ return {
         "html",
         "javascript",
         "json",
+        "yaml",
         "lua",
         "markdown",
         "markdown_inline",

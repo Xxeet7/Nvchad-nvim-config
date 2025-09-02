@@ -3,6 +3,10 @@ local options = {
     lua = { "stylua" },
     php = { "pint" },
     javascript = { "prettier" },
+    javascriptreact = { "prettier" },
+    typescript = { "prettier" },
+    typescriptreact = { "prettier" },
+    json = { "prettier" },
   },
   formatters = {
     pint = function()
