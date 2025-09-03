@@ -50,6 +50,11 @@ wk.add {
     desc = "Delete without yanking",
     icon = { icon = "󰗨", color = "red" },
   },
+  {
+    "<leader>y",
+    desc = "yazi",
+    icon = { icon = "󰇥", color = "yellow" },
+  },
   { "<leader>o", group = "open", icon = { icon = "" } },
   { "<leader>c", group = "code", icon = { icon = "", color = "azure" } },
   { "<leader>f", group = "telescope", icon = { icon = "", color = "green" } },
