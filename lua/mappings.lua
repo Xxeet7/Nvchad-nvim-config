@@ -45,14 +45,20 @@ wk.add {
     mode = "n",
     icon = { icon = "", color = "yellow" },
   },
+  {
+    "<leader>d",
+    desc = "Delete without yanking",
+    icon = { icon = "󰗨", color = "red" },
+  },
   { "<leader>o", group = "open", icon = { icon = "" } },
   { "<leader>c", group = "code", icon = { icon = "", color = "azure" } },
   { "<leader>f", group = "telescope", icon = { icon = "", color = "green" } },
   { "<leader>a", group = "AI", icon = { icon = "", color = "azure" } },
   { "<leader>t", group = "toggle", icon = { icon = "", color = "yellow" } },
   { "<leader>l", group = "LSP", icon = { icon = "󰒍", color = "blue" } },
-  { "<leader>w", group = "Workspace", icon = { icon = "", color = "blue" } },
+  { "<leader>w", group = "Workspace", icon = { icon = "", color = "blue" } },
   { "<leader>r", group = "Variables", icon = { icon = "", color = "red" } },
+  { "<leader>v", group = "Vim", icon = { icon = "", color = "green" } },
 }
 
 -- copilot chat
@@ -130,8 +136,11 @@ map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yanking" })
 map({ "n", "v" }, "c", '"_c', { desc = "Replace/Change without yanking" })
 map("n", "C", '"_C', { desc = "Replace/Change to end without yanking" })
 
--- suspend vim
-map("n", "<leader>cs", '<cmd>suspend<CR>', { desc = "suspend vim" })
+-- vim command
+map("n", "<leader>vs", "<cmd>suspend<CR>", { desc = "vim suspend" })
+map("n", "<leader>vw", "<cmd>w<CR>", { desc = "vim write (save)" })
+map("n", "<leader>vq", "<cmd>q<CR>", { desc = "vim quit" })
+map("n", "<leader>vQ", "<cmd>q!<CR>", { desc = "vim force quit" })
 
 -- center screen when jumping
 map("n", "n", "nzzzv", { desc = "Next search result (centered)" })
