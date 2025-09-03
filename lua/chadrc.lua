@@ -50,7 +50,7 @@ M.nvdash = {
     --   hl = "LazyReasonEvent",
     --   no_gap = true,
     -- },
-    -- { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+    { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
   },
 }
 
