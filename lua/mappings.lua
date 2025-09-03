@@ -130,6 +130,9 @@ map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yanking" })
 map({ "n", "v" }, "c", '"_c', { desc = "Replace/Change without yanking" })
 map("n", "C", '"_C', { desc = "Replace/Change to end without yanking" })
 
+-- suspend vim
+map("n", "<leader>cs", '<cmd>suspend<CR>', { desc = "suspend vim" })
+
 -- center screen when jumping
 map("n", "n", "nzzzv", { desc = "Next search result (centered)" })
 map("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
