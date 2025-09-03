@@ -1,3 +1,9 @@
+-- ================================================================================================
+-- TITLE : nvim-cmp
+-- ABOUT : A completion plugin for neovim coded in Lua.
+-- LINKS : https://github.com/hrsh7th/nvim-cmp
+-- ================================================================================================
+
 return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter" },

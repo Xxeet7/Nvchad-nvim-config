@@ -1,3 +1,7 @@
+-- ================================================================================================
+-- TITLE : Keymappings
+-- ================================================================================================
+
 require "nvchad.mappings"
 local history_dir = vim.fn.stdpath "data" .. "/copilotchat_history"
 local files = vim.fn.glob(history_dir .. "/*.json", false, true)

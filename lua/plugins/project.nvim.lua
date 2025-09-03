@@ -1,3 +1,9 @@
+-- ================================================================================================
+-- TITLE : project.nvim
+-- ABOUT : The superior project management solution for neovim.
+-- LINKS : https://github.com/ahmedkhalf/project.nvim
+-- ================================================================================================
+
 return {
   "ahmedkhalf/project.nvim",
   event = "VeryLazy",

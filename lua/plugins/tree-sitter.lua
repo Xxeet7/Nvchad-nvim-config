@@ -1,8 +1,7 @@
 -- ================================================================================================
 -- TITLE : nvim-treesitter
 -- ABOUT : Treesitter configurations and abstraction layer for Neovim.
--- LINKS :
---   > github : https://github.com/nvim-treesitter/nvim-treesitter
+-- LINKS : https://github.com/nvim-treesitter/nvim-treesitter
 -- ================================================================================================
 
 return {

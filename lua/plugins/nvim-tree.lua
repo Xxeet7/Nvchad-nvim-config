@@ -1,3 +1,9 @@
+-- ================================================================================================
+-- TITLE : nvim-tree
+-- ABOUT : A file explorer tree for neovim written in lua
+-- LINKS : https://github.com/nvim-tree/nvim-tree.lua
+-- ================================================================================================
+
 return {
   {
     "nvim-tree/nvim-tree.lua",

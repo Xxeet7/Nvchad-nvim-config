@@ -1,3 +1,9 @@
+-- ================================================================================================
+-- TITLE : notify
+-- ABOUT : A fancy, configurable, notification manager for NeoVim
+-- LINKS : https://github.com/rcarriga/nvim-notify
+-- ================================================================================================
+
 return {
   "rcarriga/nvim-notify",
   event = "VeryLazy",

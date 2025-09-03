@@ -1,3 +1,9 @@
+-- ================================================================================================
+-- TITLE : Copilot Chat
+-- ABOUT : Chat with GitHub Copilot in Neovim.
+-- LINKS : https://github.com/CopilotC-Nvim/CopilotChat.nvim
+-- ================================================================================================
+
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
