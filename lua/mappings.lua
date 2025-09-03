@@ -126,6 +126,10 @@ end, { desc = "buffer close all" })
 -- delete without yanking
 map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yanking" })
 
+-- make "c" not copy by default
+map({ "n", "v" }, "c", '"_c', { desc = "Replace/Change without yanking" })
+map("n", "C", '"_C', { desc = "Replace/Change to end without yanking" })
+
 -- center screen when jumping
 map("n", "n", "nzzzv", { desc = "Next search result (centered)" })
 map("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
