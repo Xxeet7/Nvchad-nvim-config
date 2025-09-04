@@ -15,7 +15,7 @@ M.base46 = {
   transparency = false,
   theme_toggle = { "horizon", "github_light" },
   hl_override = {
-    NvDashButtons = { fg = "purple" },
+    -- NvDashButtons = { fg = "purple" },
     NvDashAscii = { fg = "green", bold = true },
     -- WinSeparator = { fg = "purple" },
     Comment = { italic = true },
@@ -39,7 +39,7 @@ M.nvdash = {
     },
     { txt = "󰈙  find files", keys = "f", cmd = "lua require('telescope.builtin').find_files()" },
     { txt = "󰈹  recent project", keys = "r", cmd = "lua require'telescope'.extensions.projects.projects{}" },
-    { txt = "󰓃  help docs", keys = "h", cmd = "lua require('telescope.builtin').help_tags()" },
+    -- { txt = "󰓃  help docs", keys = "h", cmd = "lua require('telescope.builtin').help_tags()" },
     {
       txt = "󰇥  yazi",
       keys = "y",
@@ -47,7 +47,7 @@ M.nvdash = {
     },
     { txt = "󰓷  Lazy", keys = "l", cmd = "Lazy" },
     { txt = "  quit", keys = "q", cmd = "q" },
-    -- { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+    { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
     -- {
     --   txt = function()
     --     local stats = require("lazy").stats()
@@ -57,7 +57,7 @@ M.nvdash = {
     --   hl = "LazyReasonEvent",
     --   no_gap = true,
     -- },
-    { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+    -- { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
   },
 }
 
