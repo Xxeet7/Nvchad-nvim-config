@@ -24,10 +24,10 @@ unmap("n", "<leader>ch") --old Nvcheatsheet map
 unmap("n", "<leader>th") --old Nvchad theme map
 
 -- general mappings
-map("n", ";", ":", { desc = "CMD enter command mode" })
+map({"n", "v"}, ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>") --exit with jk instead of ESC
 map("n", "<C-q>", "<cmd>q<CR>", { desc = "general quit vim" })
-map({ "n", "i" }, "<C-s>", "<cmd>wa<CR>", { desc = "general save" })
+map({ "n", "i" }, "<C-s>", "<cmd>w<CR>", { desc = "general save" })
 
 -- which-key grouping
 wk.add {
@@ -54,6 +54,11 @@ wk.add {
     "<leader>y",
     desc = "yazi",
     icon = { icon = "󰇥", color = "yellow" },
+  },
+  {
+    "<leader>s",
+    desc = "split",
+    icon = { icon = "", color = "blue" },
   },
   { "<leader>o", group = "open", icon = { icon = "" } },
   { "<leader>c", group = "code", icon = { icon = "", color = "azure" } },
@@ -109,9 +114,6 @@ map("n", "<leader>ol", "<cmd>Lazy<CR>", { desc = "Open Lazy" })
 map("n", "<leader>og", function()
   require("lazy.util").float_term({ "lazygit" }, { border = "rounded" })
 end, { desc = "Open Lazy git" })
--- map("n", "<leader>oy", function()
---   require("lazy.util").float_term({ "yazi" }, { border = "rounded", cwd = vim.fn.getcwd() })
--- end, { desc = "Open Yazi file manager" })
 
 -- Telescope
 map("n", "<leader>fm", "<cmd>Telescope marks<CR>", { desc = "telescope find marks" })
@@ -156,5 +158,13 @@ map("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
 map("n", "<leader>cw", ToggleWrap, { desc = "toggle wrap line" })
 
 -- Better indenting in visual mode
-vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
-vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
+map("v", "<", "<gv", { desc = "Indent left and reselect" })
+map("v", ">", ">gv", { desc = "Indent right and reselect" })
+
+-- Splitting & Resizing
+map("n", "<leader>sv", "<Cmd>vsplit<CR>", { desc = "Split window vertically" })
+map("n", "<leader>sh", "<Cmd>split<CR>", { desc = "Split window horizontally" })
+map("n", "<C-Up>", "<Cmd>resize +2<CR>", { desc = "Increase window height" })
+map("n", "<C-Down>", "<Cmd>resize -2<CR>", { desc = "Decrease window height" })
+map("n", "<C-Left>", "<Cmd>vertical resize +2<CR>", { desc = "Decrease window width" })
+map("n", "<C-Right>", "<Cmd>vertical resize -2<CR>", { desc = "Increase window width" })

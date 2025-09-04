@@ -40,9 +40,6 @@ opt.diffopt:append("linematch:60") -- Better diff highlighting (smart line match
 
 opt.iskeyword:append("-") -- Treat dash as part of a word
 
--- default shell
--- o.shell = "pwsh"
-
 -- etc
 -- apply rounded borders to other floating UI elements
 vim.diagnostic.config {
