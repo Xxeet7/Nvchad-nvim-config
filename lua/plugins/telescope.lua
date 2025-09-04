@@ -10,6 +10,12 @@ return {
     extensions_list = { "themes", "terms", "projects" },
     extensions = {},
     defaults = {
+      mappings = {
+        n = {
+          ["<leader>sh"] = "select_horizontal",
+          ["<leader>sv"] = "select_vertical",
+        },
+      },
       file_ignore_patterns = {
         "node_modules",
         ".git",
