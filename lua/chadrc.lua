@@ -16,8 +16,10 @@ M.base46 = {
   theme_toggle = { "horizon", "github_light" },
   hl_override = {
     NvDashButtons = { fg = "purple" },
-    NvDashAscii = { fg = "green" },
+    NvDashAscii = { fg = "green", bold = true },
     WinSeparator = { fg = "purple" },
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
   },
   hl_add = {
     transparencyToggle = { bg = "blue", fg = "NONE", reverse = false },

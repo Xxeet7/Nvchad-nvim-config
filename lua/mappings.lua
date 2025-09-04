@@ -6,7 +6,6 @@ require "nvchad.mappings"
 local history_dir = vim.fn.stdpath "data" .. "/copilotchat_history"
 local files = vim.fn.glob(history_dir .. "/*.json", false, true)
 local map = vim.keymap.set
-local wk = require "which-key"
 local unmap = vim.keymap.del
 
 --unmappin default nvchad mappings

@@ -5,10 +5,16 @@
 require("nvchad.configs.lspconfig").defaults()
 
 local servers = {
+  html = {
+    filetypes = { "html" },
+  },
+  cssls = {
+    filetypes = { "css" },
+  },
   intelephense = {
     filetypes = { "php" },
   },
-  tsserver = {
+  ts_ls = {
     filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     cmd = { "typescript-language-server", "--stdio" },
   },
