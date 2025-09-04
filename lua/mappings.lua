@@ -80,6 +80,7 @@ end, { desc = "Open Lazy git" })
 
 -- Telescope
 map("n", "<leader>fm", "<cmd>Telescope marks<CR>", { desc = "telescope find marks" })
+map("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "telescope find keymaps" })
 
 -- NvCheatsheet
 map("n", "<leader>tc", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
