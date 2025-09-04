@@ -5,9 +5,6 @@
 require "nvchad.options"
 
 local opt = vim.opt
-local o = vim.o
-local g = vim.g
-local border = "rounded"
 
 -- global options
 _G.transparency_enabled = require("chadrc").base46.transparency

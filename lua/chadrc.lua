@@ -116,7 +116,7 @@ M.ui = {
 
 -- lsp configuration
 M.lsp = {
-  -- signature = false,
+  signature = true,
 }
 
 -- terminal configuration

@@ -9,6 +9,7 @@ local map = vim.keymap.set
 local unmap = vim.keymap.del
 
 --unmappin default nvchad mappings
+-- needed for changing default
 unmap("n", "<leader>n") --line number
 unmap("n", "<leader>b") --new buffer
 unmap("n", "<leader>rn") --relative number
@@ -24,21 +25,17 @@ unmap("n", "<leader>th") --old Nvchad theme map
 
 -- general mappings
 map({"n", "v"}, ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>") --exit with jk instead of ESC
+map("i", "jk", "<ESC>")
 map("n", "<C-q>", "<cmd>q<CR>", { desc = "general quit vim" })
 map({ "n", "i" }, "<C-s>", "<cmd>w<CR>", { desc = "general save" })
 
--- which-key grouping
 -- nvim tree
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Explorer (Root)" })
 map("n", "<leader>E", "<cmd>lua require('nvim-tree.api').tree.toggle({ path = vim.fn.getcwd() })<CR>", { desc = "Explorer (CWD)" })
 
 -- copilot chat
--- toggle copilot chat
 map("n", "<leader>aa", "<cmd>CopilotChatToggle<CR>", { desc = "Open/close Copilot Chat" })
--- open copilot action on highlighted
 map("v", "<leader>aa", "<cmd>CopilotChatPrompts<CR>", { desc = "Copilot action for highlighted" })
--- open last copilot session
 map("n", "<leader>ar", function()
   table.sort(files, function(a, b)
     return a > b
@@ -52,13 +49,11 @@ map("n", "<leader>ar", function()
   end
 end, { desc = "Open last copilot session" })
 
--- Toggle
--- Transparency
-map("n", "<leader>tt", ToggleTransparency, { desc = "Toggle Transparency" })
--- Theme switch
+-- Toggle 
+map("n", "<leader>tt", ToggleTransparency, { desc = "Toggle Transparency" }) -- Transparency
 map("n", "<leader>ts", function()
   require("base46").toggle_theme()
-end, { desc = "toggle switch theme" })
+end, { desc = "toggle switch theme" }) -- Theme switch
 
 -- file format
 map({ "n", "x" }, "<leader>cf", function()
@@ -66,20 +61,17 @@ map({ "n", "x" }, "<leader>cf", function()
 end, { desc = "format file" })
 
 -- Open Utils buffer
--- Mason
-map("n", "<leader>om", "<cmd>Mason<CR>", { desc = "Open Mason" })
--- Nvchad dashboard
-map("n", "<leader>on", "<cmd>Nvdash<CR>", { desc = "Open NvDash" })
--- Lazy
-map("n", "<leader>ol", "<cmd>Lazy<CR>", { desc = "Open Lazy" })
--- Lazy git
+map("n", "<leader>om", "<cmd>Mason<CR>", { desc = "Open Mason" }) -- Mason
+map("n", "<leader>on", "<cmd>Nvdash<CR>", { desc = "Open NvDash" }) -- Nvchad dashboard
+map("n", "<leader>ol", "<cmd>Lazy<CR>", { desc = "Open Lazy" }) -- Lazy
 map("n", "<leader>og", function()
   require("lazy.util").float_term({ "lazygit" }, { border = "rounded" })
-end, { desc = "Open Lazy git" })
+end, { desc = "Open Lazy git" }) -- Lazy git
 
 -- Telescope
 map("n", "<leader>fm", "<cmd>Telescope marks<CR>", { desc = "telescope find marks" })
 map("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "telescope find keymaps" })
+map("n", "<leader>fc", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidden console (term)" })
 
 -- NvCheatsheet
 map("n", "<leader>tc", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
@@ -102,11 +94,11 @@ end, { desc = "buffer close all" })
 -- delete without yanking
 map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yanking" })
 
--- make "c" not copy by default
+-- make "c" not yanking by default
 map({ "n", "v" }, "c", '"_c', { desc = "Replace/Change without yanking" })
 map("n", "C", '"_C', { desc = "Replace/Change to end without yanking" })
 
--- vim command
+-- vim commands
 map("n", "<leader>vs", "<cmd>suspend<CR>", { desc = "vim suspend" })
 map("n", "<leader>vw", "<cmd>w<CR>", { desc = "vim write (save)" })
 map("n", "<leader>vq", "<cmd>q<CR>", { desc = "vim quit" })
@@ -118,6 +110,7 @@ map("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
 map("n", "<C-d>", "<C-d>zz", { desc = "Half page down (centered)" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
 
+-- toggle wrap line
 map("n", "<leader>cw", ToggleWrap, { desc = "toggle wrap line" })
 
 -- Better indenting in visual mode
@@ -132,6 +125,7 @@ map("n", "<C-Down>", "<Cmd>resize -2<CR>", { desc = "Decrease window height" })
 map("n", "<C-Left>", "<Cmd>vertical resize +2<CR>", { desc = "Decrease window width" })
 map("n", "<C-Right>", "<Cmd>vertical resize -2<CR>", { desc = "Increase window width" })
 
+-- open gemini terminal
 map({ "n", "t" }, "<A-g>", function()
   require("nvchad.term").toggle { pos = "float", id = "geminiterm", cmd = "gemini" }
 end, { desc = "toggle gemini term" })

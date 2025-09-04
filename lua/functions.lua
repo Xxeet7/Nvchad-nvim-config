@@ -58,6 +58,7 @@ function _G.SetWeztermUserVar(name, value)
   vim.api.nvim_chan_send(vim.v.stderr, command)
 end
 
+-- toggle line wrap
 function _G.ToggleWrap()
   if _G.wrap_line then
     vim.opt.wrap = false
