@@ -17,7 +17,7 @@ M.base46 = {
   hl_override = {
     NvDashButtons = { fg = "purple" },
     NvDashAscii = { fg = "green", bold = true },
-    WinSeparator = { fg = "purple" },
+    -- WinSeparator = { fg = "purple" },
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },

@@ -35,7 +35,7 @@ return {
       view = {
         -- number = true,
         -- relativenumber = true,
-        side = "right",
+        -- side = "right",
         width = 45,
         -- float = {
         --   enable = true,
