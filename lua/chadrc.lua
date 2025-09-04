@@ -65,7 +65,7 @@ M.nvdash = {
 M.ui = {
   -- telescope
   telescope = {
-    style = "bordered",
+    style = "borderless"
   },
   -- cmp
   cmp = {
