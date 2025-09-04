@@ -30,46 +30,9 @@ map("n", "<C-q>", "<cmd>q<CR>", { desc = "general quit vim" })
 map({ "n", "i" }, "<C-s>", "<cmd>w<CR>", { desc = "general save" })
 
 -- which-key grouping
-wk.add {
-  {
-    "<leader>e",
-    "<cmd>NvimTreeToggle<CR>",
-    desc = "Explorer (Root)",
-    mode = "n",
-    icon = { icon = "", color = "yellow" },
-  },
-  {
-    "<leader>E",
-    "<cmd>lua require('nvim-tree.api').tree.toggle({ path = vim.fn.getcwd() })<CR>",
-    desc = "Explorer (CWD)",
-    mode = "n",
-    icon = { icon = "", color = "yellow" },
-  },
-  {
-    "<leader>d",
-    desc = "Delete without yanking",
-    icon = { icon = "󰗨", color = "red" },
-  },
-  {
-    "<leader>y",
-    desc = "yazi",
-    icon = { icon = "󰇥", color = "yellow" },
-  },
-  {
-    "<leader>s",
-    desc = "split",
-    icon = { icon = "", color = "blue" },
-  },
-  { "<leader>o", group = "open", icon = { icon = "" } },
-  { "<leader>c", group = "code", icon = { icon = "", color = "azure" } },
-  { "<leader>f", group = "telescope", icon = { icon = "", color = "green" } },
-  { "<leader>a", group = "AI", icon = { icon = "", color = "azure" } },
-  { "<leader>t", group = "toggle", icon = { icon = "", color = "yellow" } },
-  { "<leader>l", group = "LSP", icon = { icon = "󰒍", color = "blue" } },
-  { "<leader>w", group = "Workspace", icon = { icon = "", color = "blue" } },
-  { "<leader>r", group = "Variables", icon = { icon = "", color = "red" } },
-  { "<leader>v", group = "Vim", icon = { icon = "", color = "green" } },
-}
+-- nvim tree
+map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Explorer (Root)" })
+map("n", "<leader>E", "<cmd>lua require('nvim-tree.api').tree.toggle({ path = vim.fn.getcwd() })<CR>", { desc = "Explorer (CWD)" })
 
 -- copilot chat
 -- toggle copilot chat
