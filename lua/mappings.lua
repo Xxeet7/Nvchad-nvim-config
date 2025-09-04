@@ -131,3 +131,7 @@ map("n", "<C-Up>", "<Cmd>resize +2<CR>", { desc = "Increase window height" })
 map("n", "<C-Down>", "<Cmd>resize -2<CR>", { desc = "Decrease window height" })
 map("n", "<C-Left>", "<Cmd>vertical resize +2<CR>", { desc = "Decrease window width" })
 map("n", "<C-Right>", "<Cmd>vertical resize -2<CR>", { desc = "Increase window width" })
+
+map({ "n", "t" }, "<A-g>", function()
+  require("nvchad.term").toggle { pos = "float", id = "geminiterm", cmd = "gemini" }
+end, { desc = "toggle gemini term" })
