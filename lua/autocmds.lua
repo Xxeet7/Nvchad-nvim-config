@@ -52,7 +52,7 @@ autocmd("VimEnter", {
 })
 
 -- Restore padding when Neovim exits
-autocmd("VimLeavePre", {
+autocmd("VimLeave", {
   callback = function()
     _G.SetWeztermUserVar("nvim_padding", "default")
   end,
