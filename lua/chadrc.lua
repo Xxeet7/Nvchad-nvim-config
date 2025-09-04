@@ -13,7 +13,7 @@ local M = {}
 M.base46 = {
   theme = "horizon",
   transparency = false,
-  theme_toggle = { "horizon", "github_light" },
+  theme_toggle = { "horizon", "oceanic-light" },
   hl_override = {
     -- NvDashButtons = { fg = "purple" },
     NvDashAscii = { fg = "green", bold = true },
