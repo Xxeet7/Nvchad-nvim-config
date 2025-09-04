@@ -15,8 +15,9 @@ M.base46 = {
   transparency = false,
   theme_toggle = { "horizon", "github_light" },
   hl_override = {
-    -- NvDashButtons = { fg = "purple" },
+    NvDashButtons = { fg = "purple" },
     NvDashAscii = { fg = "green" },
+    WinSeparator = { fg = "purple" },
   },
   hl_add = {
     transparencyToggle = { bg = "blue", fg = "NONE", reverse = false },
@@ -29,7 +30,11 @@ M.base46 = {
 M.nvdash = {
   load_on_startup = true,
   buttons = {
-    { txt = "󰒓  config", keys = "c", cmd = "lua require('nvim-tree.api').tree.toggle({path = vim.fn.stdpath('config')})" },
+    {
+      txt = "󰒓  config",
+      keys = "c",
+      cmd = "lua require('nvim-tree.api').tree.toggle({path = vim.fn.stdpath('config')})",
+    },
     { txt = "󰈙  find files", keys = "f", cmd = "lua require('telescope.builtin').find_files()" },
     { txt = "󰈹  recent project", keys = "r", cmd = "lua require'telescope'.extensions.projects.projects{}" },
     { txt = "󰓃  help docs", keys = "h", cmd = "lua require('telescope.builtin').help_tags()" },
@@ -81,7 +86,9 @@ M.ui = {
     order = { "buffers", "tabs", "arrowsPrev", "arrowsNext", "transparencyToggle", "btns" },
     modules = {
       transparencyToggle = function()
-       return "%@v:lua.ToggleTransparency@%#transparencyToggle# " .. (_G.transparency_enabled and "" or "") .. " "
+        return "%@v:lua.ToggleTransparency@%#transparencyToggle# "
+          .. (_G.transparency_enabled and "" or "")
+          .. " "
       end,
       arrowsPrev = function()
         local bufs = vim.t.bufs
