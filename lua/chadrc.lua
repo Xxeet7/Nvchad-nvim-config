@@ -69,7 +69,7 @@ M.ui = {
   },
   -- cmp
   cmp = {
-    style = "atom",
+    style = "flat_light",
     icons_left = true,
   },
   -- statusline

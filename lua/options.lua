@@ -40,12 +40,6 @@ opt.diffopt:append("linematch:60") -- Better diff highlighting (smart line match
 
 opt.iskeyword:append("-") -- Treat dash as part of a word
 
--- etc
--- apply rounded borders to other floating UI elements
-vim.diagnostic.config {
-  float = { border = border },
-}
-
 -- set undo dir
 local undodir = "~/.local/share/nvim/undodir" -- Undo directory path
 vim.opt.undodir = vim.fn.expand(undodir) -- Expand to full path

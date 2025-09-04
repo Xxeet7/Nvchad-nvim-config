@@ -12,10 +12,7 @@ return {
   },
   opts = function(_, opts)
     local cmp = require "cmp"
-    -- Insert copilot source at the top
-    opts.sources = opts.sources or {}
     table.insert(opts.sources, 1, { name = "copilot" })
-    -- Merge/override with your custom cmp options
     opts.view = {
       docs = {
         auto_open = false,
@@ -24,14 +21,6 @@ return {
         -- selection_order = "near_cursor",
       }
     }
-    opts.window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
-    }
-    opts.formatting = {
-      expandable_indicator = true
-    }
-    opts.preselect = cmp.PreselectMode.None
     opts.mapping = {
       ["<UP>"] = cmp.mapping.select_prev_item(),
       ["<DOWN>"] = cmp.mapping.select_next_item(),
