@@ -14,9 +14,9 @@ local function my_on_attach(bufnr)
   api.config.mappings.default_on_attach(bufnr)
 
   -- custom mappings
-  vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-  vim.keymap.set('n', '<leader>sv', api.node.open.vertical, opts('Open file in vertical split'))
-  vim.keymap.set('n', '<leader>sh', api.node.open.horizontal, opts('Open file in horizontal split'))
+  vim.keymap.set("n", "?", api.tree.toggle_help, opts "Help")
+  vim.keymap.set("n", "<leader>sv", api.node.open.vertical, opts "Open file in vertical split")
+  vim.keymap.set("n", "<leader>sh", api.node.open.horizontal, opts "Open file in horizontal split")
 end
 
 return {
