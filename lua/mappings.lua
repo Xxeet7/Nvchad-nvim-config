@@ -24,14 +24,24 @@ unmap("n", "<leader>ch") --old Nvcheatsheet map
 unmap("n", "<leader>th") --old Nvchad theme map
 
 -- general mappings
-map({"n", "v"}, ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
-map("n", "<C-q>", "<cmd>q<CR>", { desc = "general quit vim" })
-map({ "n", "i" }, "<C-s>", "<cmd>w<CR>", { desc = "general save" })
+map({ "n", "v" }, ";", ":", { desc = "CMD enter command mode" }) -- ";" to ":"
+map("i", "jk", "<ESC>") -- easy exit insert mode
+map("n", "<C-q>", "<cmd>q<CR>", { desc = "general quit vim" }) -- quit
+map({ "n", "i" }, "<C-s>", "<cmd>w<CR>", { desc = "general save" }) -- save
+map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "hover info" }) -- lsp Hover info
+map("n", "<leader>X", "<cmd>lua require('nvchad.tabufline').closeAllBufs(true)<CR>", { desc = "buffer close all" }) -- close all buffers
+map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yanking" }) -- delete without yanking
+map({ "n", "v" }, "c", '"_c', { desc = "Replace/Change without yanking" }) -- make "c" not yanking by default
+map("n", "C", '"_C', { desc = "Replace/Change to end without yanking" }) -- same
 
 -- nvim tree
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Explorer (Root)" })
-map("n", "<leader>E", "<cmd>lua require('nvim-tree.api').tree.toggle({ path = vim.fn.getcwd() })<CR>", { desc = "Explorer (CWD)" })
+map(
+  "n",
+  "<leader>E",
+  "<cmd>lua require('nvim-tree.api').tree.toggle({ path = vim.fn.getcwd() })<CR>",
+  { desc = "Explorer (CWD)" }
+)
 
 -- copilot chat
 map("n", "<leader>aa", "<cmd>CopilotChatToggle<CR>", { desc = "Open/close Copilot Chat" })
@@ -49,55 +59,45 @@ map("n", "<leader>ar", function()
   end
 end, { desc = "Open last copilot session" })
 
--- Toggle 
-map("n", "<leader>tt", ToggleTransparency, { desc = "Toggle Transparency" }) -- Transparency
-map("n", "<leader>ts", function()
-  require("base46").toggle_theme()
-end, { desc = "toggle switch theme" }) -- Theme switch
-map("n", "<leader>tk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle show Keystroke" }) -- Transparency
+-- Toggle gemini terminal <ALT-g>
+map(
+  { "n", "t" },
+  "<A-g>",
+  "<cmd>lua require('nvchad.term').toggle { pos = 'float', id = 'geminiterm', cmd = 'gemini' }<CR>",
+  { desc = "open/close gemini term" }
+)
 
--- file format
-map({ "n", "x" }, "<leader>cf", function()
-  require("conform").format { lsp_fallback = true, async = true }
-end, { desc = "format file" })
+-- Toggle Utils
+map("n", "<leader>tt", ToggleTransparency, { desc = "Toggle Transparency" }) -- Transparency
+map("n", "<leader>ts", "<cmd>lua require('base46').toggle_theme()<CR>", { desc = "toggle switch theme" }) -- Theme switch
+map("n", "<leader>tk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle show Keystroke" }) -- Show keystroke
+map("n", "<leader>tw", ToggleWrap, { desc = "toggle wrap line" }) -- Wrap line
+
+-- Code format
+map(
+  { "n", "x" },
+  "<leader>cf",
+  " <cmd>lua require('conform').format { lsp_fallback = true, async = true }<CR>",
+  { desc = "format file" }
+)
 
 -- Open Utils buffer
 map("n", "<leader>om", "<cmd>Mason<CR>", { desc = "Open Mason" }) -- Mason
 map("n", "<leader>on", "<cmd>Nvdash<CR>", { desc = "Open NvDash" }) -- Nvchad dashboard
 map("n", "<leader>ol", "<cmd>Lazy<CR>", { desc = "Open Lazy" }) -- Lazy
-map("n", "<leader>og", function()
-  require("lazy.util").float_term({ "lazygit" }, { border = "rounded" })
-end, { desc = "Open Lazy git" }) -- Lazy git
+map(
+  "n",
+  "<leader>og",
+  "<cmd>lua require('lazy.util').float_term({ 'lazygit' }, { border = 'rounded' })<CR>",
+  { desc = "Open Lazy git" }
+) -- Lazy git
+map("n", "<leader>oc", "<cmd>NvCheatsheet<CR>", { desc = "open nvcheatsheet" }) --NvCheatsheet
 
--- Telescope
+-- Telescope (find)
 map("n", "<leader>fm", "<cmd>Telescope marks<CR>", { desc = "telescope find marks" })
 map("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "telescope find keymaps" })
 map("n", "<leader>fc", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidden console (term)" })
-
--- NvCheatsheet
-map("n", "<leader>tc", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
-
--- Nvchad themes
-map("n", "<leader>ft", function()
-  require("nvchad.themes").open()
-end, { desc = "telescope nvchad themes" })
-
--- lsp related
-map("n", "K", function()
-  vim.lsp.buf.hover { border = "rounded" }
-end, { desc = "hover info" })
-
--- close all buffers
-map("n", "<leader>X", function()
-  require("nvchad.tabufline").closeAllBufs(true)
-end, { desc = "buffer close all" })
-
--- delete without yanking
-map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yanking" })
-
--- make "c" not yanking by default
-map({ "n", "v" }, "c", '"_c', { desc = "Replace/Change without yanking" })
-map("n", "C", '"_C', { desc = "Replace/Change to end without yanking" })
+map("n", "<leader>ft", "<cmd>lua require('nvchad.themes').open()<CR>", { desc = "telescope nvchad themes" }) -- Nvchad themes
 
 -- vim commands
 map("n", "<leader>vs", "<cmd>suspend<CR>", { desc = "vim suspend" })
@@ -111,9 +111,6 @@ map("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
 map("n", "<C-d>", "<C-d>zz", { desc = "Half page down (centered)" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
 
--- toggle wrap line
-map("n", "<leader>cw", ToggleWrap, { desc = "toggle wrap line" })
-
 -- Better indenting in visual mode
 map("v", "<", "<gv", { desc = "Indent left and reselect" })
 map("v", ">", ">gv", { desc = "Indent right and reselect" })
@@ -126,14 +123,9 @@ map("n", "<C-Down>", "<Cmd>resize -2<CR>", { desc = "Decrease window height" })
 map("n", "<C-Left>", "<Cmd>vertical resize +2<CR>", { desc = "Decrease window width" })
 map("n", "<C-Right>", "<Cmd>vertical resize -2<CR>", { desc = "Increase window width" })
 
--- open gemini terminal
-map({ "n", "t" }, "<A-g>", function()
-  require("nvchad.term").toggle { pos = "float", id = "geminiterm", cmd = "gemini" }
-end, { desc = "toggle gemini term" })
-
--- Nvmenu
-vim.keymap.set({ "n", "v" }, "<RightMouse>", function()
-  require('menu.utils').delete_old_menus()
+-- Nvmenu (right click menu)
+map({ "n", "v", "i" }, "<RightMouse>", function()
+  require("menu.utils").delete_old_menus()
 
   vim.cmd.exec '"normal! \\<RightMouse>"'
 
