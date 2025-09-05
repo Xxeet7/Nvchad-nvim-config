@@ -68,3 +68,51 @@ function _G.ToggleWrap()
     _G.wrap_line = true
   end
 end
+
+function _G.vardump(value, depth, key, visited)
+    local linePrefix = ""
+    local spaces = ""
+
+    if key ~= nil then
+        linePrefix = "[" .. key .. "] = "
+    end
+
+    if depth == nil then
+        depth = 0
+    else
+        depth = depth + 1
+    end
+
+    if visited == nil then
+        visited = {}
+    end
+
+    for i = 1, depth do
+        spaces = spaces .. "  "
+    end
+
+    if type(value) == "table" then
+        if visited[value] then
+            print(spaces .. linePrefix .. "(table) *recursive*")
+            return
+        end
+        visited[value] = true
+        local mtable = getmetatable(value)
+        if mtable == nil then
+            print(spaces .. linePrefix .. "(table) ")
+        else
+            print(spaces .. "(metatable) ")
+            value = mtable
+        end
+        for tableKey, tableValue in pairs(value) do
+            vardump(tableValue, depth, tableKey, visited)
+        end
+    elseif type(value) == "function" or 
+           type(value) == "thread" or 
+           type(value) == "userdata" then
+        print(spaces .. linePrefix .. tostring(value))
+    else
+        print(spaces .. linePrefix .. "(" .. type(value) .. ") " .. tostring(value))
+    end
+end
+
