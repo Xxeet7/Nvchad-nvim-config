@@ -54,6 +54,7 @@ map("n", "<leader>tt", ToggleTransparency, { desc = "Toggle Transparency" }) -- 
 map("n", "<leader>ts", function()
   require("base46").toggle_theme()
 end, { desc = "toggle switch theme" }) -- Theme switch
+map("n", "<leader>tk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle show Keystroke" }) -- Transparency
 
 -- file format
 map({ "n", "x" }, "<leader>cf", function()
