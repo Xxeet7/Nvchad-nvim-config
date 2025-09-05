@@ -9,6 +9,9 @@ return {
   event = "VeryLazy",
   config = function()
     require("notify").setup {
+      on_open = function(win)
+        vim.api.nvim_win_set_config(win, { zindex = 1000 })
+      end,
       background_colour = "NotifyBackground",
       fps = 30,
       icons = {
