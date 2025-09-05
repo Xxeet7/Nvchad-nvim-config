@@ -59,13 +59,20 @@ map("n", "<leader>ar", function()
   end
 end, { desc = "Open last copilot session" })
 
--- Toggle gemini terminal <ALT-g>
+-- Toggle terminal <ALT>
 map(
   { "n", "t" },
   "<A-g>",
   "<cmd>lua require('nvchad.term').toggle { pos = 'float', id = 'geminiterm', cmd = 'gemini' }<CR>",
   { desc = "open/close gemini term" }
-)
+) -- gemini cli (alt-g)
+map(
+  { "n", "t" },
+  "<A-I>",
+  "<cmd>FloatermToggle<CR>",
+  { desc = "open/close Terminal Hub" }
+) -- Terminal Hub (alt-I) <- big I
+
 
 -- Toggle Utils
 map("n", "<leader>tt", ToggleTransparency, { desc = "Toggle Transparency" }) -- Transparency
