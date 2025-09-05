@@ -9,6 +9,29 @@ return {
   event = { "InsertEnter" },
   dependencies = {
     "zbirenbaum/copilot-cmp",
+    {
+      "hrsh7th/cmp-cmdline",
+      event = "CmdlineEnter",
+      config = function()
+        local cmp = require "cmp"
+
+        cmp.setup.cmdline("/", {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = { { name = "buffer" } },
+        })
+
+        cmp.setup.cmdline(":", {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = cmp.config.sources(
+            { { name = "path" } },
+            { { name = "cmdline" }, option = {
+              ignore_cmds = { "Man", "!" },
+            } }
+          ),
+          matching = { disallow_symbol_nonprefix_matching = false },
+        })
+      end,
+    },
   },
   opts = function(_, opts)
     local cmp = require "cmp"
@@ -19,7 +42,7 @@ return {
       },
       entries = {
         -- selection_order = "near_cursor",
-      }
+      },
     }
     opts.mapping = {
       ["<UP>"] = cmp.mapping.select_prev_item(),
@@ -47,4 +70,3 @@ return {
     return opts
   end,
 }
-
