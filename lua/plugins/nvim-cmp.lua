@@ -36,6 +36,11 @@ return {
   opts = function(_, opts)
     local cmp = require "cmp"
     table.insert(opts.sources, 1, { name = "copilot" })
+    for i = #opts.sources, 1, -1 do
+      if opts.sources[i].name == "typr" then
+        table.remove(opts.sources, i)
+      end
+    end
     opts.view = {
       docs = {
         auto_open = false,
