@@ -1,3 +1,6 @@
+>[!warning]
+> moved into [dotfiles](https://github.com/Xxeet7/dotfiles/tree/main/nvim)
+
 **This is my [Nvchad](https://nvchad.com/) config for daily code with nvim**
 
 - It still very messy, so be with it
